@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'django_lesson.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd5eq10ltmua5js',
+        'USER': 'hprfesxumswotl',
+        'PASSWORD': '0ffa9354fa67000d2f5869e0545681a08f17cb1b3d0457288b260e6a86ddc089',
+        'HOST': 'ec2-54-217-225-16.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

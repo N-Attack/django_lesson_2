@@ -19,7 +19,6 @@ class Choice(models.Model):
 
 
 class User(models.Model):
-    image = models.ImageField(blank=True)
     name = models.CharField(max_length=200)
 
     def __str__(self):
