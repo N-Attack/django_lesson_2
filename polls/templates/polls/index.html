@@ -1,0 +1,9 @@
+{% if items %}
+    <ul>
+    {% for item in items %}
+        <li>{{ item.name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There is no comments.</p>
+{% endif %}
