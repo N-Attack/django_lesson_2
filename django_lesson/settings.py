@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'django_lesson.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5eq10ltmua5js',
-        'USER': 'hprfesxumswotl',
-        'PASSWORD': '0ffa9354fa67000d2f5869e0545681a08f17cb1b3d0457288b260e6a86ddc089',
-        'HOST': 'ec2-54-217-225-16.eu-west-1.compute.amazonaws.com',
+        'NAME': 'da9khmgi11d8n7',
+        'USER': 'zbnnxlktyfpfsz',
+        'PASSWORD': 'ad5e2764999a15843217ee58637a9a75211880347cf0f593b7d0d4f2fe22f513',
+        'HOST': 'ec2-54-246-90-10.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -95,20 +95,21 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
+LOGIN_REDIRECT_URL = '/blog'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

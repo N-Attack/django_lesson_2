@@ -1,14 +1,13 @@
-from django.http import HttpResponse, HttpRequest
-from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404
+from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import CreateView
 
 from blog.forms import CommentForm
 from blog.models import Article, Comment
-
-
-def index(request: HttpRequest):
-    return HttpResponse('hello')
 
 
 class IndexView(generic.ListView):
@@ -23,35 +22,21 @@ class IndexView(generic.ListView):
 class ArticleView(generic.DetailView):
     model = Article
     template_name = 'article.html'
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super(ArticleView, self).get_context_data(**kwargs)
-    #     context['form'] = CommentForm
-    #     return context
-    #
 
 
-class NewComment(CreateView):
+class NewComment(LoginRequiredMixin, CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'new_comment_form.html'
+    login_url = reverse_lazy('blog:login')
+    redirect_field_name = REDIRECT_FIELD_NAME
 
     def form_valid(self, form):
-        # comment = form.save(commit=False)
         form.instance.article = get_object_or_404(Article, *self.args, **self.kwargs)
         return super(NewComment, self).form_valid(form)
 
 
-def new_comment(request, article_id):
-    article = get_object_or_404(Article, pk=article_id)
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.article = article
-            comment.save()
-            return redirect('article', pk=article.pk)
-    else:
-        form = CommentForm()
-
-    return redirect('article', pk=article.pk)
+class SignUp(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/signup.html'
+    redirect_field_name = REDIRECT_FIELD_NAME
