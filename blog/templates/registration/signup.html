@@ -25,8 +25,7 @@
                 </table>
                 {% if form.errors %}
                     <p class=" label label-danger">
-                        Your username and password didn't match.
-                        Please try again.
+                        {{ form.errors }}
                     </p>
                 {% endif %}
 
