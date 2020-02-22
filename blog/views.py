@@ -2,7 +2,7 @@ from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.views.generic import CreateView
 
@@ -37,7 +37,7 @@ class NewComment(CreateView):
 #     model = Comment
 #     form_class = CommentForm
 #     template_name = 'new_comment_form.html'
-#     login_url = reverse_lazy('blog:login')
+#     login_url = reverse('blog:login')
 #     redirect_field_name = REDIRECT_FIELD_NAME
 #
 #     def form_valid(self, form):
@@ -48,4 +48,5 @@ class NewComment(CreateView):
 # class SignUp(CreateView):
 #     form_class = UserCreationForm
 #     template_name = 'registration/signup.html'
-#     redirect_field_name = REDIRECT_FIELD_NAME
+#     success_url = reverse('blog:index')
+
