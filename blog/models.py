@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from markdown import markdown
+from django.contrib.auth.models import User
 
 
 class Article(models.Model):

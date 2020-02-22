@@ -24,19 +24,28 @@ class ArticleView(generic.DetailView):
     template_name = 'article.html'
 
 
-class NewComment(LoginRequiredMixin, CreateView):
+class NewComment(CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'new_comment_form.html'
-    login_url = reverse_lazy('blog:login')
-    redirect_field_name = REDIRECT_FIELD_NAME
 
     def form_valid(self, form):
         form.instance.article = get_object_or_404(Article, *self.args, **self.kwargs)
         return super(NewComment, self).form_valid(form)
 
-
-class SignUp(CreateView):
-    form_class = UserCreationForm
-    template_name = 'registration/signup.html'
-    redirect_field_name = REDIRECT_FIELD_NAME
+# class NewComment(LoginRequiredMixin, CreateView):
+#     model = Comment
+#     form_class = CommentForm
+#     template_name = 'new_comment_form.html'
+#     login_url = reverse_lazy('blog:login')
+#     redirect_field_name = REDIRECT_FIELD_NAME
+#
+#     def form_valid(self, form):
+#         form.instance.article = get_object_or_404(Article, *self.args, **self.kwargs)
+#         return super(NewComment, self).form_valid(form)
+#
+#
+# class SignUp(CreateView):
+#     form_class = UserCreationForm
+#     template_name = 'registration/signup.html'
+#     redirect_field_name = REDIRECT_FIELD_NAME

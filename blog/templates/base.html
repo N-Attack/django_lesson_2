@@ -27,27 +27,27 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-            {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link">Hello, {{ user }}</a>
-                </li>
-            {% endif %}
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url "blog:logout" %}">Logout</a>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url "blog:login" %}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url "blog:signup" %}">Sign Up</a>
-                </li>
-            {% endif %}
-        </ul>
+{#        <ul class="navbar-nav mr-auto">#}
+{#            {% if user.is_authenticated %}#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link">Hello, {{ user }}</a>#}
+{#                </li>#}
+{#            {% endif %}#}
+{#        </ul>#}
+{#        <ul class="navbar-nav ml-auto">#}
+{#            {% if user.is_authenticated %}#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="{% url "blog:logout" %}">Logout</a>#}
+{#                </li>#}
+{#            {% else %}#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="{% url "blog:login" %}">Login</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="{% url "blog:signup" %}">Sign Up</a>#}
+{#                </li>#}
+{#            {% endif %}#}
+{#        </ul>#}
     </div>
 </nav>
 
